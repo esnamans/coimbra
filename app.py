@@ -28,18 +28,19 @@ def main():
     st.sidebar.markdown("Are you have breast cancer?")
 
 
-
-     
-
-
-
-
     def load_data():
         data = pd.read_csv('dataR2.csv')
         label = LabelEncoder()
         for col in data.columns:
             data[col] = label.fit_transform(data[col])
         return data
+    
+    def load_data():
+        dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
+        label = LabelEncoder()
+        for col in data.columns:
+            data[col] = label.fit_transform(data[col])
+        return dfnew
 
 
     def split(df):
