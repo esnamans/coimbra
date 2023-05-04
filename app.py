@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import sklearn
-import xgboost==1.0.2
+!pip install xgboost==1.0.0
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
