@@ -33,7 +33,7 @@ def main():
 
 
 
-    @st.cache_data(persist=True)
+
     def load_data():
         data = pd.read_csv('dataR2.csv')
         label = LabelEncoder()
@@ -41,7 +41,7 @@ def main():
             data[col] = label.fit_transform(data[col])
         return data
 
-    @st.cache_data(persist=True)
+
     def split(df):
         y = df.Classification
         x = df.drop(columns =['Classification'])
