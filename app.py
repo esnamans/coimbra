@@ -20,10 +20,6 @@ from xgboost import XGBClassifier
 from sklearn.feature_selection import RFECV
 from sklearn.model_selection import StratifiedKFold
 
-uploaded_file = st.file_uploader("Choose a file", key="1")
-if uploaded_file is not None:
-   uploaded_file.seek(0)
-
 
 def main():
     st.title("Breast Cancer Classification Web App")
@@ -39,7 +35,7 @@ def main():
 
     @st.cache_data(persist=True)
     def load_data():
-        data = pd.read_csv(uploaded_file, low_memory=False)
+        data = pd.read_csv('dataR2.csv')
         label = LabelEncoder()
         for col in data.columns:
             data[col] = label.fit_transform(data[col])
