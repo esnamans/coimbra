@@ -37,7 +37,7 @@ def main():
 
 
 
-    @st.experimental_memo(persist=True)
+    @st.cache_data(persist=True)
     def load_data():
         data = pd.read_csv(uploaded_file, low_memory=False)
         label = LabelEncoder()
@@ -45,7 +45,7 @@ def main():
             data[col] = label.fit_transform(data[col])
         return data
 
-    @st.experimental_memo(persist=True)
+    @st.cache_data(persist=True)
     def split(df):
         y = df.Classification
         x = df.drop(columns =['Classification'])
