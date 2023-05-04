@@ -49,7 +49,7 @@ def main():
         return x_train, x_test, y_train, y_test
 
 
-    @st.cache_data(persist=True)
+
     def split(dfnew):
         y = dfnew.Classification
         x = dfnew.drop(columns =['Classification'])
@@ -174,7 +174,7 @@ def main():
         st.dataframe(dfnew)
 
     
-    @st.cache_data(persist=True)
+
     def split(dfnew):
         y = dfnew.Classification
         x = dfnew.drop(columns =['Classification'])
