@@ -31,7 +31,7 @@ def main():
 
     def load_data():
         df = pd.read_csv('dataR2.csv')
-        return data
+        return df
         
     def split(df):
         y = df.Classification
