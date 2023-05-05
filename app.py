@@ -31,6 +31,7 @@ def main():
 
     def load_data():
         data = pd.read_csv('dataR2.csv')
+        dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
         return data
 
 
@@ -157,16 +158,7 @@ def main():
           help='Select a column to form a new dataframe. Press submit when done.')
           drop_na = st.checkbox('Drop rows with missing value', value=True)
           submitted = st.form_submit_button("Submit")
-    
-    if submitted:
-        dfnew = df[sel_column]
-        if drop_na:
-            dfnew = dfnew.dropna()
-
-        st.write('New dataframe')
-        st.dataframe(dfnew)
-
-    
+  
 
     def split(dfnew):
         y = dfnew.Classification
