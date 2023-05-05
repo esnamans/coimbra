@@ -27,9 +27,15 @@ def main():
     st.markdown("Are you have breast cancer?")
     st.sidebar.markdown("Are you have breast cancer?")
 
+ def load_data():
+    data = pd.read_csv('dataR2.csv')
+    return data
+ df = load_data()
 
- data = pd.read_csv('dataR2.csv')
- dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
+ def load_data():
+    data2 = pd.read_csv('coimbra dataset breast sudah rfe.csv'')
+    return data
+ dfnew = load_data()   
 
 
 
