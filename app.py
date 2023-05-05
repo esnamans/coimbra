@@ -103,13 +103,14 @@ def main():
 
     if classifier == 'Random Forest':
         st.sidebar.subheader("Model Hyperparameters")
-        n_estimators  = st.sidebar.number_input("The number of trees in the forest", 100, 5000, step=10, key='n_estimators')
-        max_depth = st.sidebar.number_input("The maximum depth of the tree", 1, 20, step=1, key='max_depth')
 
 
         if st.sidebar.button("Classfiy", key='classify'):
             st.subheader("Random Forest")
-            model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth, n_jobs=-1, random_state=3)
+            y = df.Classification
+            x = df.drop(columns =['Classification'])
+            x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
+            model = RandomForestClassifier(n_estimators=100, max_depth=1, n_jobs=-1, random_state=3)
             model.fit(x_train, y_train)
             accuracy = model.score(x_test, y_test)
             y_pred = model.predict(x_test)
@@ -119,13 +120,15 @@ def main():
 
     if classifier == 'Random Forest dengan XGBoost':
         st.sidebar.subheader("Model Hyperparameters")
-        num_parallel_tree = st.sidebar.number_input("The number of trees in the forest", 100, 200, step=10, key='num_parallel_tree')
-        max_depth = st.sidebar.number_input("The maximum depth of the tree", 1, 20, step=1, key='max_depth')
+
 
         
         if st.sidebar.button("Classfiy", key='classify'):
             st.subheader("Random Forest dengan XGBoost")
-            model = XGBClassifier(num_parallel_tree=num_parallel_tree, max_depth=max_depth, n_jobs=-1)
+            y = df.Classification
+            x = df.drop(columns =['Classification'])
+            x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
+            model = XGBClassifier(num_parallel_tree=100, max_depth=1, n_jobs=-1)
             model.fit(x_train, y_train)
             accuracy = model.score(x_test, y_test)
             y_pred = model.predict(x_test)
