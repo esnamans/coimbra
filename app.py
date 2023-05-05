@@ -82,11 +82,17 @@ def main():
             plt.xlabel('Importance', fontsize=14, labelpad=20)
             st.pyplot(plt.gcf())
             
+    df = load_data()
+    class_names = ['Health Control', 'Patient']
 
+    x_train, x_test, y_train, y_test = split(df)
 
-
-        
+    dfnew = load_data()
+    class_names = ['Health Control', 'Patient']
     
+    x_train2, x_test2, y_train2, y_test2 = split(dfnew)
+        
+        
     st.sidebar.subheader("Choose Classifier")
     classifier = st.sidebar.selectbox("Classifier", ("Recursive Feature Elimination Cross Validation", "Random Forest", "Random Forest dengan XGBoost"), key="3")
 
