@@ -47,10 +47,6 @@ def main():
 
 
 
-
-
-
-
     def plot_metrics(metrics_list):
         st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -159,25 +155,15 @@ def main():
 
     if st.sidebar.checkbox("AKurasi Random Forest", False, key='lihat78'):
         st.subheader("Random Forest")
-        model2 = RandomForestClassifier(n_estimators=10, max_depth=10,random_state=3)
-        model2.fit(x_train2, y_train2)
-        accuracy = model2.score(x_test2, y_test2)
-        y_pred2 = model2.predict(x_test2)
+        modele = RandomForestClassifier(n_estimators=10, max_depth=10,random_state=3)
+        modele.fit(x_train2, y_train2)
+        accuracye = modele.score(x_test2, y_test2)
+        y_pred2 = modele.predict(x_test2)
         st.write("Accuracy ", accuracy.round(7))
         st.write("Precision: ", precision_score(y_test2, y_pred2, labels=class_names).round(7))
         st.write("Recall: ", recall_score(y_test2, y_pred2, labels=class_names).round(7))
         st.write(dfnew)
 
-    if st.sidebar.checkbox("Hasil baru", False, key='lihat80'):
-        st.subheader("Random Forest")
-        model2 = RandomForestClassifier(n_estimators=10, max_depth=10,random_state=3)
-        model2.fit(x_train2, y_train2)
-        Age = st.number_input("Masukan Umur") 
-        BMI = st.number_input("Masukan BMI") 
-        Restitin = st.number_input("Restitin") 
-        Glucose = st.number_input("Glucose")
-        hasil_1 = model2.predict(Age, BMI, Restitin, Glucose)
-        st.write(hasil_1)
 
 
 
