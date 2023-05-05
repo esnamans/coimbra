@@ -27,13 +27,10 @@ def main():
     st.sidebar.title("Breast Cancer Classification Web App")
     st.markdown("Are you have breast cancer?")
     st.sidebar.markdown("Are you have breast cancer?")
+    
+    df = pd.read_csv('dataR2.csv')
+    dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
 
-
-    def load_data():
-        df = pd.read_csv('dataR2.csv')
-        dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
-        return df
-        return dfnew
     
     def split(df):
         y = df.Classification
@@ -82,15 +79,7 @@ def main():
             plt.xlabel('Importance', fontsize=14, labelpad=20)
             st.pyplot(plt.gcf())
             
-    df = load_data()
-    class_names = ['Health Control', 'Patient']
 
-    x_train, x_test, y_train, y_test = split(df)
-
-    dfnew = load_data()
-    class_names = ['Health Control', 'Patient']
-    
-    x_train2, x_test2, y_train2, y_test2 = split(dfnew)
         
         
     st.sidebar.subheader("Choose Classifier")
