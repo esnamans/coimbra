@@ -67,7 +67,7 @@ def main():
     st.sidebar.subheader("Sebelum RFECV")
 
     if st.sidebar.checkbox("Lihat Data Sebelum RFECV", False, key='lihatlama1'):
-        st.subheader("coimbra data set (Classification)")
+        st.subheader("Coimbra Breast Cancer Dataset")
         st.write(df)
     
     if st.sidebar.checkbox("RFECV (Recursive Feature Elimination Cross Validation)", False, key='lihatlama2'):
@@ -113,7 +113,7 @@ def main():
     st.sidebar.subheader("Data Baru Setelah RFECV")
 
     if st.sidebar.checkbox("Lihat Data Baru Setelah RFECV", False, key='lihatbaru1'):
-        st.subheader("coimbra data set (Classification)")
+        st.subheader("Coimbra Breast Cancer Dataset Setelah RFECV")
         st.write(dfnew)
 
     if st.sidebar.checkbox("Random Forest", False, key='lihatbaru2'):
