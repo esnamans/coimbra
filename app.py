@@ -31,8 +31,10 @@ def main():
 
     def load_data():
         df = pd.read_csv('dataR2.csv')
+        dfnew = pd.read_csv('dataR2.csv')
+        return dfnew
         return df
-        
+    
     def split(df):
         y = df.Classification
         x = df.drop(columns =['Classification'])
