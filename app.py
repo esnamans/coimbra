@@ -91,7 +91,7 @@ def main():
             y = df.Classification
             x = df.drop(columns =['Classification'])
             x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
-            model = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=3)
+            model = RandomForestClassifier(n_estimators=100, max_depth=1, random_state=3)
             model.fit(x_train, y_train)
             y_pred = model.predict(x_test)
             st.write("Accuracy ", accuracy_score(y_test, y_pred).round(7))
@@ -103,7 +103,7 @@ def main():
             y = df.Classification
             x = df.drop(columns =['Classification'])
             x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
-            model = XGBClassifier(num_parallel_tree=100, max_depth=10,random_state=3 )
+            model = XGBClassifier(num_parallel_tree=100, max_depth=1,random_state=3 )
             model.fit(x_train, y_train)
             y_pred = model.predict(x_test)
             st.write("Accuracy ", accuracy_score(y_test, y_pred).round(7))
@@ -121,7 +121,7 @@ def main():
         y2 = dfnew.Classification
         x2 = dfnew.drop(columns =['Classification'])
         x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
-        modele = RandomForestClassifier(n_estimators=100, max_depth=10,random_state=3)
+        modele = RandomForestClassifier(n_estimators=100, max_depth=1,random_state=3)
         modele.fit(x_train2, y_train2)
         y_pred2 = modele.predict(x_test2)
         st.write("Accuracy ", accuracy_score(y_test2, y_pred2).round(7))
@@ -133,7 +133,7 @@ def main():
         y2 = dfnew.Classification
         x2 = dfnew.drop(columns =['Classification'])
         x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
-        modele = XGBClassifier(num_parallel_tree=100, max_depth=10,random_state=3 )
+        modele = XGBClassifier(num_parallel_tree=100, max_depth=1,random_state=3 )
         modele.fit(x_train2, y_train2)
         y_pred2 = modele.predict(x_test2)
         st.write("Accuracy ", accuracy_score(y_test2, y_pred2).round(7))
