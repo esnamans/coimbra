@@ -40,6 +40,12 @@ def main():
         x = df.drop(columns =['Classification'])
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
         return x_train, x_test, y_train, y_test
+    
+    def split(dfnew):
+        y = dfnew.Classification
+        x = dfnew.drop(columns =['Classification'])
+        x_train2, x_test2, y_train2, y_test2 = train_test_split(x, y, test_size=0.3, random_state=1)
+        return x_train2, x_test2, y_train2, y_test2
 
 
 
@@ -77,11 +83,6 @@ def main():
             st.pyplot(plt.gcf())
             
 
-
-    df = load_data()
-    class_names = ['Health Control', 'Patient']
-
-    x_train, x_test, y_train, y_test = split(df)
 
 
         
