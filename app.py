@@ -20,17 +20,14 @@ from xgboost import XGBClassifier
 from sklearn.feature_selection import RFECV
 from sklearn.model_selection import StratifiedKFold
 
-
-
 def main():
     st.title("Breast Cancer Classification Web App")
     st.sidebar.title("Breast Cancer Classification Web App")
-    st.markdown("Are you have breast cancer?")
-    st.sidebar.markdown("Are you have breast cancer?")
+    st.markdown("Prediksi Kanker Payudara dengan Seleksi Fitur RFECV dan Random Forest dengan XGBoost")
+    st.sidebar.markdown("Prediksi Kanker Payudara dengan Seleksi Fitur RFECV dan Random Forest dengan XGBoost")
     
     df = pd.read_csv('dataR2.csv')
     dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
-
 
 
     def plot_metrics(metrics_list):
@@ -61,7 +58,6 @@ def main():
             plt.xlabel('Importance', fontsize=14, labelpad=20)
             st.pyplot(plt.gcf())
             
-
         
         
     st.sidebar.subheader("Sebelum RFECV")
@@ -139,8 +135,23 @@ def main():
         st.write("Accuracy ", accuracy_score(y_test2, y_pred2).round(7))
         st.write("Precision: ", precision_score(y_test2, y_pred2).round(7))
         st.write("Recall: ", recall_score(y_test2, y_pred2).round(7))
-
-
+        
+    st.sidebar.subheader("Prediksi Kanker Payudara")
+    
+    if st.sidebar.checkbox("Hasil baru", False, key='lihat80'):
+        st.subheader("Random Forest")
+        y2 = dfnew.Classification
+        x2 = dfnew.drop(columns =['Classification'])
+        x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
+        modelo = RandomForestClassifier(n_estimators=100, max_depth=1,random_state=3)
+        modelo.fit(x_train2, y_train2)
+        Age = st.number_input("Masukan Umur") 
+        BMI = st.number_input("Masukan BMI") 
+        Restitin = st.number_input("Restitin") 
+        Glucose = st.number_input("Glucose")
+        hasil_1 = modelo.predict(Age, BMI, Restitin, Glucose)
+        st.write(hasil_1)    
+    
 
 if __name__ == '__main__':
     main()
