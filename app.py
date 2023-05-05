@@ -31,20 +31,6 @@ def main():
     df = pd.read_csv('dataR2.csv')
     dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
 
-    
-    def split(df):
-        y = df.Classification
-        x = df.drop(columns =['Classification'])
-        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
-        return x_train, x_test, y_train, y_test
-    
-    def split(dfnew):
-        y2 = dfnew.Classification
-        x2 = dfnew.drop(columns =['Classification'])
-        x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
-        return x_train2, x_test2, y_train2, y_test2
-
-
 
 
     def plot_metrics(metrics_list):
@@ -78,35 +64,28 @@ def main():
 
         
         
-    st.sidebar.subheader("Choose Classifier")
-    classifier = st.sidebar.selectbox("Classifier", ("Recursive Feature Elimination Cross Validation", "Random Forest", "Random Forest dengan XGBoost"), key="3")
+    st.sidebar.subheader("Sebelum RFECV")
 
-    if classifier == 'Recursive Feature Elimination Cross Validation':
-        st.sidebar.subheader("Model Hyperparameters")
-        
-
-        if st.sidebar.button("Classfiy", key='classify'):
-            st.subheader("Recursive Feature Elimination Cross Validation")
-            x_full = df.drop(columns =['Classification'])
-            y_full = df.Classification
-            rfc = RandomForestClassifier(random_state=0)
-            rfecv = RFECV(estimator=rfc, step=1, cv=StratifiedKFold(10), scoring='accuracy')
-            rfecv.fit(x_full, y_full)
-            x_full.drop(x_full.columns[np.where(rfecv.support_ == False)[0]], axis=1, inplace=True)
-            dset = pd.DataFrame()
-            dset['attr'] = x_full.columns
-            dset['importance'] = rfecv.estimator_.feature_importances_
-            dset = dset.sort_values(by='importance', ascending=False)
-            plot_metrics('Seleksi Fitur')
+    if st.sidebar.checkbox("Lihat Data Sebelum RFECV", False, key='lihat1'):
+        st.subheader("coimbra data set (Classification)")
+        st.write(df)
+    
+    if st.sidebar.checkbox("RFECV (Recursive Feature Elimination Cross Validation)", False, key='lihatlama1'):
+         x_full = df.drop(columns =['Classification'])
+         y_full = df.Classification
+         rfc = RandomForestClassifier(random_state=0)
+         rfecv = RFECV(estimator=rfc, step=1, cv=StratifiedKFold(10), scoring='accuracy')
+         rfecv.fit(x_full, y_full)
+         x_full.drop(x_full.columns[np.where(rfecv.support_ == False)[0]], axis=1, inplace=True)
+         dset = pd.DataFrame()
+         dset['attr'] = x_full.columns
+         dset['importance'] = rfecv.estimator_.feature_importances_
+         dset = dset.sort_values(by='importance', ascending=False)
+         plot_metrics('Seleksi Fitur')
 
 
 
-    if classifier == 'Random Forest':
-        st.sidebar.subheader("Model Hyperparameters")
-
-
-        if st.sidebar.button("Classfiy", key='classify'):
-            st.subheader("Random Forest")
+    if st.sidebar.checkbox("Random Forest", False, key='lihatlama2'):
             y = df.Classification
             x = df.drop(columns =['Classification'])
             x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
@@ -118,13 +97,7 @@ def main():
             st.write("Precision: ", precision_score(y_test, y_pred).round(7))
             st.write("Recall: ", recall_score(y_test, y_pred).round(7))
 
-    if classifier == 'Random Forest dengan XGBoost':
-        st.sidebar.subheader("Model Hyperparameters")
-
-
-        
-        if st.sidebar.button("Classfiy", key='classify'):
-            st.subheader("Random Forest dengan XGBoost")
+    if st.sidebar.checkbox("Random Forest dengan XGBoost", False, key='lihatlama3'):
             y = df.Classification
             x = df.drop(columns =['Classification'])
             x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
@@ -136,27 +109,15 @@ def main():
             st.write("Precision: ", precision_score(y_test, y_preds).round(7))
             st.write("Recall: ", recall_score(y_test, y_pred).round(7))
 
-    if st.sidebar.checkbox("Pilih Data", False, key='lihat2'):
-        st.subheader("Pilih data coimbra data set (Classification)")
-        st.write(df)
-        with st.form('form'):
-          sel_column = st.multiselect('Select column', df.columns,
-          help='Select a column to form a new dataframe. Press submit when done.')
-          drop_na = st.checkbox('Drop rows with missing value', value=True)
-          submitted = st.form_submit_button("Submit")
+
   
+    st.sidebar.subheader("Data Baru Setelah RFECV")
 
-
-    if st.sidebar.checkbox("Show raw data Sebelum", False, key='lihat1'):
-        st.subheader("coimbra data set (Classification)")
-        st.write(df)
-
-    
     if st.sidebar.checkbox("Lihat data baru", False, key='lihat3'):
         st.subheader("coimbra data set (Classification)")
         st.write(dfnew)
 
-    if st.sidebar.checkbox("AKurasi Random Forest", False, key='lihat78'):
+    if st.sidebar.checkbox("Random Forest", False, key='lihat78'):
         st.subheader("Random Forest")
         y2 = dfnew.Classification
         x2 = dfnew.drop(columns =['Classification'])
@@ -168,7 +129,6 @@ def main():
         st.write("Accuracy ", accuracye.round(7))
         st.write("Precision: ", precision_score(y_test2, y_pred2).round(7))
         st.write("Recall: ", recall_score(y_test2, y_pred2).round(7))
-        st.write(dfnew)
 
 
 
