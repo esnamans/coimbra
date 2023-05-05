@@ -31,9 +31,11 @@ def main():
 
     def load_data():
         data = pd.read_csv('dataR2.csv')
-        dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
         return data
 
+    def loade_data(): 
+        dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
+        return data
 
         
     def split(df):
@@ -89,7 +91,7 @@ def main():
 
     x_train, x_test, y_train, y_test = split(df)
 
-    dfnew = load_data()
+    dfnew = loade_data()
     class_names = ['Health Control', 'Patient']
     
     x_train2, x_test2, y_train2, y_test2 = split(dfnew)
@@ -160,11 +162,6 @@ def main():
           submitted = st.form_submit_button("Submit")
   
 
-    def split(dfnew):
-        y = dfnew.Classification
-        x = dfnew.drop(columns =['Classification'])
-        x_train2, x_test2, y_train2, y_test2 = train_test_split(x, y, test_size=0.3, random_state=0)
-        return x_train2, x_test2, y_train2, y_test2
 
     if st.sidebar.checkbox("Show raw data Sebelum", False, key='lihat1'):
         st.subheader("coimbra data set (Classification)")
