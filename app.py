@@ -143,14 +143,14 @@ def main():
         y2 = dfnew.Classification
         x2 = dfnew.drop(columns =['Classification'])
         x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
-        modelo = RandomForestClassifier(n_estimators=100, max_depth=1,random_state=3)
-        modelo.fit(x_train2, y_train2)
+        model2 = RandomForestClassifier(n_estimators=100, max_depth=1,random_state=3)
+        model2.fit(x_train2, y_train2)
         Age = st.number_input("Masukan Umur") 
         BMI = st.number_input("Masukan BMI") 
         Restitin = st.number_input("Restitin") 
         Glucose = st.number_input("Glucose")
-        hasil_1 = modelo.predict(Age, BMI, Restitin, Glucose)
-        st.write(hasil_1)    
+        hasil_1 = model2.predict(Age, BMI, Restitin, Glucose)
+        st.write(hasil_1)
     
 
 if __name__ == '__main__':
