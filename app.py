@@ -115,8 +115,8 @@ def main():
             accuracy = model.score(x_test, y_test)
             y_pred = model.predict(x_test)
             st.write("Accuracy ", accuracy.round(7))
-            st.write("Precision: ", precision_score(y_test, y_pred, labels=class_names).round(7))
-            st.write("Recall: ", recall_score(y_test, y_pred, labels=class_names).round(7))
+            st.write("Precision: ", precision_score(y_test, y_pred).round(7))
+            st.write("Recall: ", recall_score(y_test, y_pred).round(7))
 
     if classifier == 'Random Forest dengan XGBoost':
         st.sidebar.subheader("Model Hyperparameters")
@@ -133,8 +133,8 @@ def main():
             accuracy = model.score(x_test, y_test)
             y_pred = model.predict(x_test)
             st.write("Accuracy ", accuracy.round(7))
-            st.write("Precision: ", precision_score(y_test, y_pred, labels=class_names).round(7))
-            st.write("Recall: ", recall_score(y_test, y_pred, labels=class_names).round(7))
+            st.write("Precision: ", precision_score(y_test, y_preds).round(7))
+            st.write("Recall: ", recall_score(y_test, y_pred).round(7))
 
     if st.sidebar.checkbox("Pilih Data", False, key='lihat2'):
         st.subheader("Pilih data coimbra data set (Classification)")
@@ -158,13 +158,16 @@ def main():
 
     if st.sidebar.checkbox("AKurasi Random Forest", False, key='lihat78'):
         st.subheader("Random Forest")
+        y2 = dfnew.Classification
+        x2 = dfnew.drop(columns =['Classification'])
+        x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
         modele = RandomForestClassifier(n_estimators=10, max_depth=10,random_state=3)
         modele.fit(x_train2, y_train2)
         accuracye = modele.score(x_test2, y_test2)
         y_pred2 = modele.predict(x_test2)
-        st.write("Accuracy ", accuracy.round(7))
-        st.write("Precision: ", precision_score(y_test2, y_pred2, labels=class_names).round(7))
-        st.write("Recall: ", recall_score(y_test2, y_pred2, labels=class_names).round(7))
+        st.write("Accuracy ", accuracye.round(7))
+        st.write("Precision: ", precision_score(y_test2, y_pred2).round(7))
+        st.write("Recall: ", recall_score(y_test2, y_pred2).round(7))
         st.write(dfnew)
 
 
