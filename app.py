@@ -32,8 +32,8 @@ def main():
     def load_data():
         df = pd.read_csv('dataR2.csv')
         dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
-        return dfnew
         return df
+        return dfnew
     
     def split(df):
         y = df.Classification
