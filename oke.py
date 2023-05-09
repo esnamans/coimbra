@@ -1,4 +1,5 @@
 import streamlit as st
+import altair
 import pandas as pd
 import numpy as np
 import sklearn
