@@ -81,7 +81,6 @@ def main():
          plot_metrics('Seleksi Fitur')
 
 
-
     if st.sidebar.checkbox("Random Forest", False, key='lihatlama3'):
             st.subheader("Random Forest Sebelum RFECV")
             y = df.Classification
