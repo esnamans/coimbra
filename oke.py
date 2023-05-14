@@ -18,7 +18,7 @@ from sklearn.metrics import accuracy_score
 from xgboost import XGBRFClassifier
 from xgboost import XGBClassifier
 from sklearn.model_selection import KFold
-from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import cross_val_score, Kfold
 from sklearn.feature_selection import RFECV
 from sklearn.model_selection import StratifiedKFold
 
