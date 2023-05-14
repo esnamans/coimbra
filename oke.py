@@ -105,10 +105,10 @@ def main():
             model = XGBClassifier(num_parallel_tree=100, max_depth=1,random_state=3 )
             cv = KFold(n_splits=10, random_state=3, shuffle=True)            
             scores = cross_val_score(model, x, y, scoring='accuracy', cv=10)
-            st.write("10 Fold Accuracy", scores)
-            st.write("Accuracy Terkecil", scores.min().round(7))
-            st.write("Accuracy Terbesar", scores.max())
-            st.write("Rata Rata Accuracy", scores.mean())
+            st.write("10 Fold Accuracy", scores.round(3))
+            st.write("Accuracy Terbesar", round(scores.min(),3))
+            st.write("Accuracy Terbesar", round(scores.max(),3))
+            st.write("Rata Rata Accuracy", round(scores.mean(),3))
 
     st.sidebar.subheader("Data Baru Setelah RFECV")
 
@@ -124,10 +124,10 @@ def main():
         modele = RandomForestClassifier(n_estimators=100, max_depth=1,random_state=3)
         cv = KFold(n_splits=10, random_state=3, shuffle=True)            
         scores = cross_val_score(modele, x2, y2, scoring='accuracy', cv=10)
-        st.write("10 Fold Accuracy", scores)
-        st.write("Accuracy Terkecil", scores.min())
-        st.write("Accuracy Terbesar", scores.max())
-        st.write("Rata Rata Accuracy", round(scores.mean()*100,2), '%')
+        st.write("10 Fold Accuracy", scores.round(3))
+        st.write("Accuracy Terbesar", round(scores.min(),3))
+        st.write("Accuracy Terbesar", round(scores.max(),3))
+        st.write("Rata Rata Accuracy", round(scores.mean(),3))
 
     if st.sidebar.checkbox("Random Forest dengan XGBoost", False, key='lihatbaru3'):
         st.subheader("Random Forest dengan XGBoost Setelah RFECV")
@@ -137,10 +137,10 @@ def main():
         modele = XGBClassifier(num_parallel_tree=100, max_depth=1,random_state=3)
         cv = KFold(n_splits=10, random_state=3, shuffle=True)            
         scores = cross_val_score(modele, x2, y2, scoring='accuracy', cv=10)
-        st.write("10 Fold Accuracy", scores)
-        st.write("Accuracy Terkecil", scores.min())
-        st.write("Accuracy Terbesar", scores.max())
-        st.write("Rata Rata Accuracy", scores.mean())
+        st.write("10 Fold Accuracy", scores.round(3))
+        st.write("Accuracy Terbesar", round(scores.min(),3))
+        st.write("Accuracy Terbesar", round(scores.max(),3))
+        st.write("Rata Rata Accuracy", round(scores.mean(),3))
         
     st.sidebar.subheader("Prediksi Kanker Payudara")
 
