@@ -93,7 +93,7 @@ def main():
             y_pred = model.predict(x_test)
             cv = KFold(n_splits=10, random_state=3, shuffle=True)
             scores = cross_val_score(model, x_train, y_train, scoring='accuracy', cv=10, n_jobs=-1)
-            st.write("Cross Validation Accuracy", scores.mean(), scores.min(), scores.max(), scores)
+            st.write("10 Fold Accuracy", scores, "Rata Rata Accuracy", scores.mean(),)
             st.write("Accuracy ", accuracy_score(y_test, y_pred).round(7))
             st.write("Precision: ", precision_score(y_test, y_pred).round(7))
             st.write("Recall: ", recall_score(y_test, y_pred).round(7))
