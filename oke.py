@@ -92,10 +92,24 @@ def main():
             model.fit(x_train, y_train)
             y_pred = model.predict(x_test)
             cv = KFold(n_splits=10, random_state=1, shuffle=True)
-            scores = cross_val_score(model, x, y, scoring='accuracy', cv=cv, n_jobs=-1)
-            skores = cross_val_score(model, y_pred, y_test, scoring='accuracy', cv=cv, n_jobs=-1)
+            scores = cross_val_score(model, x, y, scoring=scoring, cv=cv, n_jobs=-1)
+            St.write("Training Accuracy scores": results['train_accuracy'],
+              "Mean Training Accuracy": results['train_accuracy'].mean()*100,
+              "Training Precision scores": results['train_precision'],
+              "Mean Training Precision": results['train_precision'].mean(),
+              "Training Recall scores": results['train_recall'],
+              "Mean Training Recall": results['train_recall'].mean(),
+              "Training F1 scores": results['train_f1'],
+              "Mean Training F1 Score": results['train_f1'].mean(),
+              "Validation Accuracy scores": results['test_accuracy'],
+              "Mean Validation Accuracy": results['test_accuracy'].mean()*100,
+              "Validation Precision scores": results['test_precision'],
+              "Mean Validation Precision": results['test_precision'].mean(),
+              "Validation Recall scores": results['test_recall'],
+              "Mean Validation Recall": results['test_recall'].mean(),
+              "Validation F1 scores": results['test_f1'])
+              "Mean Validation F1 Score": results['test_f1'].mean()
             st.write("Cross Validation Accuracy", scores.mean(),scores.std())
-            st.write("Cross Validation Accuracy B", skores.mean(),skores.std())
             st.write("Accuracy ", accuracy_score(y_test, y_pred).round(7))
             st.write("Precision: ", precision_score(y_test, y_pred).round(7))
             st.write("Recall: ", recall_score(y_test, y_pred).round(7))
