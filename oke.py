@@ -17,6 +17,8 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import accuracy_score
 from xgboost import XGBRFClassifier
 from xgboost import XGBClassifier
+from sklearn.model_selection import KFold
+from sklearn.model_selection import cross_val_score
 from sklearn.feature_selection import RFECV
 from sklearn.model_selection import StratifiedKFold
 
@@ -86,9 +88,12 @@ def main():
             y = df.Classification
             x = df.drop(columns =['Classification'])
             x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
+            cv = KFold(n_splits=10, random_state=1, shuffle=True)
             model = RandomForestClassifier(n_estimators=100, max_depth=1, random_state=3)
             model.fit(x_train, y_train)
             y_pred = model.predict(x_test)
+            scores = cross_val_score(model, X, y, scoring='accuracy', cv=cv, n_jobs=-1)
+            st.write('Accuracy: %.3f (%.3f)' % (mean(scores), std(scores)))
             st.write("Accuracy ", accuracy_score(y_test, y_pred).round(7))
             st.write("Precision: ", precision_score(y_test, y_pred).round(7))
             st.write("Recall: ", recall_score(y_test, y_pred).round(7))
