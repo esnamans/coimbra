@@ -91,7 +91,7 @@ def main():
             model = RandomForestClassifier(n_estimators=100, max_depth=1, random_state=3)
             cv = KFold(n_splits=10, random_state=3, shuffle=True)
             scores = cross_val_score(model, x, y, scoring='accuracy', cv=10)
-            st.write("10 Fold Accuracy", scores.round(*100,2))
+            st.write("10 Fold Accuracy", scores*100.round(2))
             st.write("Accuracy Terbesar", round(scores.min()*100,2), '%')
             st.write("Accuracy Terbesar", round(scores.max()*100,2), '%')
             st.write("Rata Rata Accuracy", round(scores.mean()*100,2), '%')
