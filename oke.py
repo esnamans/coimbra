@@ -93,8 +93,8 @@ def main():
             scores = cross_val_score(model, x, y, scoring='accuracy', cv=10)
             st.write("10 Fold Accuracy", scores)
             st.write("Accuracy Terkecil", scores.min())
-            st.write("Accuracy Terbesar", scores.max())
-            st.write("Rata Rata Accuracy", scores.mean())
+            st.write("Accuracy Terbesar", scores.max()*100, 2)
+            st.write("Rata Rata Accuracy", round(scores.mean()*100,2), '%')
 
 
     if st.sidebar.checkbox("Random Forest dengan XGBoost", False, key='lihatlama4'):
@@ -127,7 +127,7 @@ def main():
         st.write("10 Fold Accuracy", scores)
         st.write("Accuracy Terkecil", scores.min())
         st.write("Accuracy Terbesar", scores.max())
-        st.write("Rata Rata Accuracy", scores.mean())
+        st.write("Rata Rata Accuracy", round(scores.mean()*100,2), '%')
 
     if st.sidebar.checkbox("Random Forest dengan XGBoost", False, key='lihatbaru3'):
         st.subheader("Random Forest dengan XGBoost Setelah RFECV")
