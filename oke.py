@@ -135,11 +135,12 @@ def main():
         x2 = dfnew.drop(columns =['Classification'])
         x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
         modele = XGBClassifier(num_parallel_tree=100, max_depth=1,random_state=3)
-        modele.fit(x_train2, y_train2)
-        y_pred2 = modele.predict(x_test2)
-        st.write("Accuracy ", accuracy_score(y_test2, y_pred2).round(7))
-        st.write("Precision: ", precision_score(y_test2, y_pred2).round(7))
-        st.write("Recall: ", recall_score(y_test2, y_pred2).round(7))
+        cv = KFold(n_splits=10, random_state=3, shuffle=True)            
+        scores = cross_val_score(modele, x2, y2, scoring='accuracy', cv=10)
+        st.write("10 Fold Accuracy", scores)
+        st.write("Accuracy Terkecil", scores.min())
+        st.write("Accuracy Terbesar", scores.max())
+        st.write("Rata Rata Accuracy", scores.mean())
         
     st.sidebar.subheader("Prediksi Kanker Payudara")
 
