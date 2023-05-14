@@ -93,7 +93,7 @@ def main():
             y_pred = model.predict(x_test)
             cv = KFold(n_splits=10, random_state=1, shuffle=True)
             scores = cross_val_score(model, x, y, scoring=scoring, cv=cv, n_jobs=-1)
-            St.write("Training Accuracy scores": results['train_accuracy'],
+            st.write("Training Accuracy scores": results['train_accuracy'],
               "Mean Training Accuracy": results['train_accuracy'].mean()*100,
               "Training Precision scores": results['train_precision'],
               "Mean Training Precision": results['train_precision'].mean(),
