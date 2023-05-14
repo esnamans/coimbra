@@ -88,12 +88,11 @@ def main():
             y = df.Classification
             x = df.drop(columns =['Classification'])
             x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
-            
             model = RandomForestClassifier(n_estimators=100, max_depth=1, random_state=3)
             model.fit(x_train, y_train)
             y_pred = model.predict(x_test)
-            fold = KFold(n_splits=10, random_state=1, shuffle=True)
-            scores = cross_val_score(model, X, y, scoring='accuracy', cv=fold, n_jobs=-1)
+            cv = KFold(n_splits=10, random_state=1, shuffle=True)
+            scores = cross_val_score(model, x, y, scoring='accuracy', cv=cv, n_jobs=-1)
             st.write('Accuracy: %.3f (%.3f)' % (mean(scores), std(scores)))
             st.write("Accuracy ", accuracy_score(y_test, y_pred).round(7))
             st.write("Precision: ", precision_score(y_test, y_pred).round(7))
