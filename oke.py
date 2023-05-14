@@ -92,9 +92,9 @@ def main():
             cv = KFold(n_splits=10, random_state=3, shuffle=True)
             scores = cross_val_score(model, x, y, scoring='accuracy', cv=10)
             st.write("10 Fold Accuracy", scores)
-            st.write("Accuracy Terbesar", round(scores.min()3), '%')
-            st.write("Accuracy Terbesar", round(scores.max()3), '%')
-            st.write("Rata Rata Accuracy", round(scores.mean()3), '%')
+            st.write("Accuracy Terbesar", round(scores.min(),3), '%')
+            st.write("Accuracy Terbesar", round(scores.max(),3), '%')
+            st.write("Rata Rata Accuracy", round(scores.mean(),3), '%')
 
 
     if st.sidebar.checkbox("Random Forest dengan XGBoost", False, key='lihatlama4'):
@@ -106,7 +106,7 @@ def main():
             cv = KFold(n_splits=10, random_state=3, shuffle=True)            
             scores = cross_val_score(model, x, y, scoring='accuracy', cv=10)
             st.write("10 Fold Accuracy", scores)
-            st.write("Accuracy Terkecil", scores.min())
+            st.write("Accuracy Terkecil", scores.min().round(7))
             st.write("Accuracy Terbesar", scores.max())
             st.write("Rata Rata Accuracy", scores.mean())
 
