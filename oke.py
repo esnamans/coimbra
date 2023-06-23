@@ -30,7 +30,7 @@ def main():
     image = Image.open('logounnes.png')
     left_co, cent_co,last_co = st.columns(3)
     with cent_co:
-        st.image(image,width=300,caption='Bonifasius Bryan Elias 4611416053')
+        st.image(image,width=400)
         st.markdown("<h4 style='text-align: center; color: black;'>Bonifasius Bryan Elias 4611416053</h4>", unsafe_allow_html=True)
     
     
