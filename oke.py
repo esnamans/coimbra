@@ -27,11 +27,12 @@ def main():
     st.markdown("<h1 style='text-align: center; color: black;'>Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara</h1>", unsafe_allow_html=True)
     st.sidebar.title("Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
     st.sidebar.markdown("Bonifasius Bryan Elias 4611416053")
+    image = Image.open('logounnes.png')
     left_co, cent_co,last_co = st.columns(3)
     with cent_co:
-    st.image(logo)
-    image = Image.open('logounnes.png')
     st.image(image,width=300,caption='Bonifasius Bryan Elias 4611416053')
+    
+    
     
     
 
