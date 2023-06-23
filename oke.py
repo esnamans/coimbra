@@ -23,8 +23,8 @@ from sklearn.feature_selection import RFECV
 from sklearn.model_selection import StratifiedKFold
 
 def main():
-    st.title("Optimasi Algoritma Random Forest Dengan XGBoost Dab Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
-    st.sidebar.title("Optimasi Algoritma Random Forest Dengan XGBoost Dab Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
+    st.title("Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
+    st.sidebar.title("Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
     st.markdown("Bonifasius Bryan Elias 4611416053")
     st.sidebar.markdown("Bonifasius Bryan Elias 4611416053")
     
