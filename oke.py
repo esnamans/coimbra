@@ -23,10 +23,10 @@ from sklearn.feature_selection import RFECV
 from sklearn.model_selection import StratifiedKFold
 
 def main():
-    st.title("Breast Cancer Classification Web App")
-    st.sidebar.title("Breast Cancer Classification Web App")
-    st.markdown("Prediksi Kanker Payudara dengan Seleksi Fitur RFECV dan Random Forest dengan XGBoost")
-    st.sidebar.markdown("Prediksi Kanker Payudara dengan Seleksi Fitur RFECV dan Random Forest dengan XGBoost")
+    st.title("Optimasi Algoritma Random Forest Dengan XGBoost Dab Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
+    st.sidebar.title("Optimasi Algoritma Random Forest Dengan XGBoost Dab Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
+    st.markdown("Bonifasius Bryan Elias 4611416053")
+    st.sidebar.markdown("Bonifasius Bryan Elias 4611416053")
     
     df = pd.read_csv('dataR2.csv')
     dfnew = pd.read_csv('coimbra dataset breast sudah rfe.csv')
