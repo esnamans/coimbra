@@ -26,10 +26,10 @@ from PIL import Image
 def main():
     image = Image.open('logounnes.png')
     st.image(image,width=300)
-    st.markdown("<h1 style='text-align: center; color: grey;'>Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: black;'>Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara</h1>", unsafe_allow_html=True)
     st.sidebar.title("Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
     st.markdown("Bonifasius Bryan Elias 4611416053")
-    st.sidebar.markdown("Bonifasius Bryan Elias 4611416053")
+    st.sidebar.markdown("<h2 style='text-align: center; color: black;'>Bonifasius Bryan Elias 4611416053</h2>", unsafe_allow_html=True)
     
 
 
