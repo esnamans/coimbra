@@ -24,22 +24,10 @@ from sklearn.model_selection import StratifiedKFold
 from PIL import Image
 
 def main():
-    image = Image.open('logounnes.png')
-    
-    col1, col2, col3 = st.beta_columns([1,6,1])
-    
-    with col1:
-    st.write("")
-
-    with col2:
-    st.image(image,width=300)
-
-    with col3:
-    st.write("")
-    
     st.markdown("<h1 style='text-align: center; color: black;'>Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara</h1>", unsafe_allow_html=True)
     st.sidebar.title("Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
-    st.markdown("<h4 style='text-align: center; color: black;'>Bonifasius Bryan Elias 4611416053</h4>", unsafe_allow_html=True)
+    image = Image.open('logounnes.png')
+    st.image(image,width=300,caption='Bonifasius Bryan Elias 4611416053')
     st.sidebar.markdown("Bonifasius Bryan Elias 4611416053")
     
 
