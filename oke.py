@@ -30,7 +30,7 @@ def main():
     image = Image.open('logounnes.png')
     left_co, cent_co,last_co = st.columns(3)
     with cent_co:
-    st.image(image,width=300,caption='Bonifasius Bryan Elias 4611416053')
+        st.image(image,width=300,caption='Bonifasius Bryan Elias 4611416053')
     
     
     
