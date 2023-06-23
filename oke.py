@@ -25,7 +25,6 @@ from PIL import Image
 
 def main():
     image = Image.open('logounnes.png')
-    image = Image.resize((400, 400))
     st.image(image)
     st.title("Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
     st.sidebar.title("Optimasi Algoritma Random Forest Dengan XGBoost Dan Feature Selection RF- RFECV Untuk Diagnosis Penyakit Kanker Payudara")
