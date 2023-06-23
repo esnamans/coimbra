@@ -31,7 +31,7 @@ def main():
     left_co, cent_co,last_co = st.columns(3)
     with cent_co:
         st.image(image,width=400)
-        st.markdown("<h4 style='text-align: center; color: black;'>Bonifasius Bryan Elias 4611416053</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='color: black;'>Bonifasius Bryan Elias 4611416053</h4>", unsafe_allow_html=True)
     
     
     
