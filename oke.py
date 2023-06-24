@@ -101,7 +101,7 @@ def main():
             cv = KFold(n_splits=10, random_state=3, shuffle=True)
             scores = cross_val_score(model, x, y, scoring='accuracy', cv=10)
             st.write("10 Fold Accuracy", scores.round(3))
-            st.write("Accuracy Terbesar", round(scores.min(),3))
+            st.write("Accuracy Terkecil", round(scores.min(),3))
             st.write("Accuracy Terbesar", round(scores.max(),3))
             st.write("Rata Rata Accuracy", round(scores.mean(),3))
 
@@ -115,7 +115,7 @@ def main():
             cv = KFold(n_splits=10, random_state=3, shuffle=True)            
             scores = cross_val_score(model, x, y, scoring='accuracy', cv=10)
             st.write("10 Fold Accuracy", scores.round(3))
-            st.write("Accuracy Terbesar", round(scores.min(),3))
+            st.write("Accuracy Terkecil", round(scores.min(),3))
             st.write("Accuracy Terbesar", round(scores.max(),3))
             st.write("Rata Rata Accuracy", round(scores.mean(),3))
 
@@ -134,7 +134,7 @@ def main():
         cv = KFold(n_splits=10, random_state=3, shuffle=True)            
         scores = cross_val_score(modele, x2, y2, scoring='accuracy', cv=10)
         st.write("10 Fold Accuracy", scores.round(3))
-        st.write("Accuracy Terbesar", round(scores.min(),3))
+        st.write("Accuracy Terkecil", round(scores.min(),3))
         st.write("Accuracy Terbesar", round(scores.max(),3))
         st.write("Rata Rata Accuracy", round(scores.mean(),3))
 
@@ -147,7 +147,7 @@ def main():
         cv = KFold(n_splits=10, random_state=3, shuffle=True)            
         scores = cross_val_score(modele, x2, y2, scoring='accuracy', cv=10)
         st.write("10 Fold Accuracy", scores.round(3))
-        st.write("Accuracy Terbesar", round(scores.min(),3))
+        st.write("Accuracy Terkecil", round(scores.min(),3))
         st.write("Accuracy Terbesar", round(scores.max(),3))
         st.write("Rata Rata Accuracy", round(scores.mean(),3))
         
