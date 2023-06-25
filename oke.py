@@ -65,7 +65,7 @@ def main():
             st.subheader("Seleksi Fitur")
             plt.figure(figsize=(16, 14))
             plt.barh(y=dset['attr'], width=dset['importance'], color='#1976D2')
-            plt.title('RFECV - Feature Importances', fontsize=20, fontweight='bold', pad=20)
+            plt.title('RF-RFECV - Feature Importances', fontsize=20, fontweight='bold', pad=20)
             plt.xlabel('Importance', fontsize=14, labelpad=20)
             st.pyplot(plt.gcf())
             
