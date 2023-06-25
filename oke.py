@@ -79,7 +79,7 @@ def main():
         st.write(df)
     
     if st.sidebar.checkbox("Seleksi Fitur RF-RFECV", False, key='lihatlama2'):
-         st.subheader("Seleksi Fitur RF-RFECV")
+         st.subheader("Feature Selection RF-RFECV")
          x_full = df.drop(columns =['Classification'])
          y_full = df.Classification
          rfc = RandomForestClassifier(random_state=0)
