@@ -73,11 +73,11 @@ def main():
         
     st.sidebar.subheader("Before RF-RFECV")
 
-    if st.sidebar.checkbox("Lihat Data Awal", False, key='lihatlama1'):
+    if st.sidebar.checkbox("Lihat Dataset Awal", False, key='lihatlama1'):
         st.subheader("Coimbra Breast Cancer Dataset")
         st.write(df)
     
-    if st.sidebar.checkbox("RF-RFECV (Random-Recursive Feature Elimination Cross Validation)", False, key='lihatlama2'):
+    if st.sidebar.checkbox("RF-RFECV (Random Forest-Recursive Feature Elimination Cross Validation)", False, key='lihatlama2'):
          st.subheader("Seleksi Fitur RF-RFECV")
          x_full = df.drop(columns =['Classification'])
          y_full = df.Classification
@@ -121,7 +121,7 @@ def main():
 
     st.sidebar.subheader("After RF-RFECV")
 
-    if st.sidebar.checkbox("Lihat Data Setelah RF-RFECV", False, key='lihatbaru1'):
+    if st.sidebar.checkbox("Lihat Dataset Setelah RF-RFECV", False, key='lihatbaru1'):
         st.subheader("Coimbra Breast Cancer Dataset Setelah RF-RFECV")
         st.write(dfnew)
 
