@@ -62,7 +62,7 @@ def main():
             st.pyplot()
 
         if 'Seleksi Fitur' in metrics_list:
-            st.subheader("Seleksi Fitur")
+            st.subheader("Seleksi Fitur RF-RFECV")
             plt.figure(figsize=(16, 14))
             plt.barh(y=dset['attr'], width=dset['importance'], color='#1976D2')
             plt.title('RF-RFECV - Feature Importances', fontsize=20, fontweight='bold', pad=20)
