@@ -74,10 +74,10 @@ def main():
     st.sidebar.subheader("Before RF-RFECV")
 
     if st.sidebar.checkbox("Lihat Dataset Awal", False, key='lihatlama1'):
-        st.subheader("Coimbra Breast Cancer Dataset")
+        st.subheader("Dataset Awal /n Coimbra Breast Cancer Dataset")
         st.write(df)
     
-    if st.sidebar.checkbox("RF-RFECV (Random Forest-Recursive Feature Elimination Cross Validation)", False, key='lihatlama2'):
+    if st.sidebar.checkbox("Seleksi Fitur RF-RFECV", False, key='lihatlama2'):
          st.subheader("Seleksi Fitur RF-RFECV")
          x_full = df.drop(columns =['Classification'])
          y_full = df.Classification
@@ -92,7 +92,7 @@ def main():
          plot_metrics('Seleksi Fitur')
 
 
-    if st.sidebar.checkbox("Random Forest", False, key='lihatlama3'):
+    if st.sidebar.checkbox("Random Forest Sebelum RF-RFECV", False, key='lihatlama3'):
             st.subheader("Random Forest Sebelum RF-RFECV")
             y = df.Classification
             x = df.drop(columns =['Classification'])
@@ -106,7 +106,7 @@ def main():
             st.write("Rata Rata Accuracy", round(scores.mean(),3))
 
 
-    if st.sidebar.checkbox("Random Forest dengan XGBoost", False, key='lihatlama4'):
+    if st.sidebar.checkbox("Random Forest dengan XGBoost Sebelum RF-RFECV", False, key='lihatlama4'):
             st.subheader("Random Forest dengan XGBoost Sebelum RF-RFECV")
             y = df.Classification
             x = df.drop(columns =['Classification'])
