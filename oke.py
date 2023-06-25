@@ -97,7 +97,7 @@ def main():
             y = df.Classification
             x = df.drop(columns =['Classification'])
             x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
-            model = RandomForestClassifier(n_estimators=100, max_depth=1, random_state=3)
+            model = RandomForestClassifier(n_estimators=100, max_depth=3, random_state=3)
             cv = KFold(n_splits=10, random_state=3, shuffle=True)
             scores = cross_val_score(model, x, y, scoring='accuracy', cv=10)
             st.write("10 Fold Accuracy", scores.round(3))
@@ -111,7 +111,7 @@ def main():
             y = df.Classification
             x = df.drop(columns =['Classification'])
             x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
-            model = XGBClassifier(num_parallel_tree=100, max_depth=1,random_state=3 )
+            model = XGBClassifier(num_parallel_tree=100, max_depth=3,random_state=3 )
             cv = KFold(n_splits=10, random_state=3, shuffle=True)            
             scores = cross_val_score(model, x, y, scoring='accuracy', cv=10)
             st.write("10 Fold Accuracy", scores.round(3))
@@ -130,7 +130,7 @@ def main():
         y2 = dfnew.Classification
         x2 = dfnew.drop(columns =['Classification'])
         x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
-        modele = RandomForestClassifier(n_estimators=100, max_depth=1,random_state=3)
+        modele = RandomForestClassifier(n_estimators=100, max_depth=3,random_state=3)
         cv = KFold(n_splits=10, random_state=3, shuffle=True)            
         scores = cross_val_score(modele, x2, y2, scoring='accuracy', cv=10)
         st.write("10 Fold Accuracy", scores.round(3))
@@ -143,7 +143,7 @@ def main():
         y2 = dfnew.Classification
         x2 = dfnew.drop(columns =['Classification'])
         x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
-        modele = XGBClassifier(num_parallel_tree=100, max_depth=1,random_state=3)
+        modele = XGBClassifier(num_parallel_tree=100, max_depth=3,random_state=3)
         cv = KFold(n_splits=10, random_state=3, shuffle=True)            
         scores = cross_val_score(modele, x2, y2, scoring='accuracy', cv=10)
         st.write("10 Fold Accuracy", scores.round(3))
@@ -160,7 +160,7 @@ def main():
         y1 = dfnew.Classification
         x1 = dfnew.drop(columns =['Classification'])
         x1_train,x1_test,y1_train,y1_test=train_test_split(x1,y1,test_size=0.3,random_state=1)
-        model1=XGBClassifier(num_parallel_tree=100, max_depth=1,random_state=3)
+        model1=XGBClassifier(num_parallel_tree=100, max_depth=3,random_state=3)
         model1.fit(x1_train,y1_train)
         dfst1 = pd.DataFrame(columns=["Age", "BMI", "Glucose", "Resistin"])
         Age=st.number_input("Masukan Umur") 
