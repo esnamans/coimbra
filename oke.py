@@ -71,14 +71,14 @@ def main():
             
         
         
-    st.sidebar.subheader("Sebelum RFECV")
+    st.sidebar.subheader("Before RF-RFECV")
 
-    if st.sidebar.checkbox("Lihat Data Sebelum RFECV", False, key='lihatlama1'):
+    if st.sidebar.checkbox("Lihat Data Awal", False, key='lihatlama1'):
         st.subheader("Coimbra Breast Cancer Dataset")
         st.write(df)
     
-    if st.sidebar.checkbox("RFECV (Recursive Feature Elimination Cross Validation)", False, key='lihatlama2'):
-         st.subheader("Seleksi Fitur RFECV")
+    if st.sidebar.checkbox("RF-RFECV (Random-Recursive Feature Elimination Cross Validation)", False, key='lihatlama2'):
+         st.subheader("Seleksi Fitur RF-RFECV")
          x_full = df.drop(columns =['Classification'])
          y_full = df.Classification
          rfc = RandomForestClassifier(random_state=0)
@@ -93,7 +93,7 @@ def main():
 
 
     if st.sidebar.checkbox("Random Forest", False, key='lihatlama3'):
-            st.subheader("Random Forest Sebelum RFECV")
+            st.subheader("Random Forest Sebelum RF-RFECV")
             y = df.Classification
             x = df.drop(columns =['Classification'])
             x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
@@ -107,7 +107,7 @@ def main():
 
 
     if st.sidebar.checkbox("Random Forest dengan XGBoost", False, key='lihatlama4'):
-            st.subheader("Random Forest dengan XGBoost Sebelum RFECV")
+            st.subheader("Random Forest dengan XGBoost Sebelum RF-RFECV")
             y = df.Classification
             x = df.drop(columns =['Classification'])
             x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
@@ -119,27 +119,14 @@ def main():
             st.write("Accuracy Terbesar", round(scores.max(),3))
             st.write("Rata Rata Accuracy", round(scores.mean(),3))
 
-    st.sidebar.subheader("Data Baru Setelah RFECV")
+    st.sidebar.subheader("After RF-RFECV")
 
-    if st.sidebar.checkbox("Lihat Data Baru Setelah RFECV", False, key='lihatbaru1'):
-        st.subheader("Coimbra Breast Cancer Dataset Setelah RFECV")
+    if st.sidebar.checkbox("Lihat Data Setelah RF-RFECV", False, key='lihatbaru1'):
+        st.subheader("Coimbra Breast Cancer Dataset Setelah RF-RFECV")
         st.write(dfnew)
 
-    if st.sidebar.checkbox("Random Forest", False, key='lihatbaru2'):
-        st.subheader("Random Forest Setelah RFECV")
-        y2 = dfnew.Classification
-        x2 = dfnew.drop(columns =['Classification'])
-        x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
-        modele = RandomForestClassifier(n_estimators=100, random_state=3)
-        cv = KFold(n_splits=10, random_state=3, shuffle=True)            
-        scores = cross_val_score(modele, x2, y2, scoring='accuracy', cv=10)
-        st.write("10 Fold Accuracy", scores.round(3))
-        st.write("Accuracy Terkecil", round(scores.min(),3))
-        st.write("Accuracy Terbesar", round(scores.max(),3))
-        st.write("Rata Rata Accuracy", round(scores.mean(),3))
-
     if st.sidebar.checkbox("Random Forest dengan XGBoost", False, key='lihatbaru3'):
-        st.subheader("Random Forest dengan XGBoost Setelah RFECV")
+        st.subheader("Random Forest dengan XGBoost Setelah RF-RFECV")
         y2 = dfnew.Classification
         x2 = dfnew.drop(columns =['Classification'])
         x_train2, x_test2, y_train2, y_test2 = train_test_split(x2, y2, test_size=0.3, random_state=1)
@@ -151,10 +138,10 @@ def main():
         st.write("Accuracy Terbesar", round(scores.max(),3))
         st.write("Rata Rata Accuracy", round(scores.mean(),3))
         
-    st.sidebar.subheader("Prediksi Kanker Payudara")
+    st.sidebar.subheader("Prediksi Baru Kanker Payudara")
 
 
-    if st.sidebar.checkbox("Prediksi Kanker Payudara", False, key='prediksibaru1'):
+    if st.sidebar.checkbox("Prediksi Baru Kanker Payudara", False, key='prediksibaru1'):
         st.header("Prediksi Kanker Payudara")
         st.write("Masukan Data Untuk Prediksi")
         y1 = dfnew.Classification
