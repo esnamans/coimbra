@@ -74,7 +74,8 @@ def main():
     st.sidebar.subheader("Before RF-RFECV")
 
     if st.sidebar.checkbox("Lihat Dataset Awal", False, key='lihatlama1'):
-        st.subheader("Dataset Awal /n Coimbra Breast Cancer Dataset")
+        st.subheader("Dataset Awal 
+        Coimbra Breast Cancer Dataset")
         st.write(df)
     
     if st.sidebar.checkbox("Seleksi Fitur RF-RFECV", False, key='lihatlama2'):
